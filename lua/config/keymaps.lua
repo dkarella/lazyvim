@@ -4,8 +4,8 @@
 
 local map = vim.keymap.set
 
-map("n", "<leader>|", "<C-W>s", { desc = "Split Window Below", remap = true })
-map("n", "<leader>\\", "<C-W>v", { desc = "Split Window Right", remap = true })
+map("n", "|", "<C-W>s", { desc = "Split Window Below", remap = true })
+map("n", "\\", "<C-W>v", { desc = "Split Window Right", remap = true })
 
 map("n", "<leader>bn", function()
   local rel = vim.fn.expand("%")
