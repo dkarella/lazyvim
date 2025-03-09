@@ -3,19 +3,19 @@ return {
   opts = {},
   keys = {
     {
-      "w",
+      "W",
       "<cmd>lua require('spider').motion('w')<CR>",
       mode = { "n", "o", "x" },
       desc = "Move to start of next of word",
     },
     {
-      "e",
+      "E",
       "<cmd>lua require('spider').motion('e')<CR>",
       mode = { "n", "o", "x" },
       desc = "Move to end of word",
     },
     {
-      "b",
+      "B",
       "<cmd>lua require('spider').motion('b')<CR>",
       mode = { "n", "o", "x" },
       desc = "Move to start of previous word",
