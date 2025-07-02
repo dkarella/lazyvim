@@ -24,15 +24,23 @@ return {
       -- Enable/disable animation of icons.
       animated = false,
     },
-
     adapters = {
       ["neotest-golang"] = {
-        go_test_args = { "-v", "-race", "-count=1", "-timeout=30s" },
+        -- runner = "gotestsum", -- requires: go install gotest.tools/gotestsum@latest
+        go_test_args = { "-v", "-race", "-count=1", "-timeout=30s", "-tags=unit,integration" },
+        -- go_test_args = { "-v", "-count=1", "-timeout=30s", "-tags=unit,integration" },
+        go_list_args = { "-tags=unit,integration" },
         testify_enabled = true,
         dap_go_enabled = true,
+        dap_go_opts = {
+          delve = {
+            build_flags = "-tags=unit,integration",
+          },
+        },
       },
 
       ["rustaceanvim.neotest"] = {},
     },
+    ["rustaceanvim.neotest"] = {},
   },
 }

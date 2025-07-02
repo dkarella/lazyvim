@@ -38,6 +38,11 @@ end, { desc = "copy current buffer absolute path to clipboard" })
 -- Terminal
 map("t", "<C-x>", [[<C-\><C-n>]], { desc = "Enter normal mode in terminal window" })
 
+-- LazyDocker
+map("n", "<leader>ld", function()
+  Snacks.terminal("lazydocker")
+end, { desc = "LazyDocker" })
+
 -- DAP
 map("n", "<F5>", function()
   require("dap").continue()

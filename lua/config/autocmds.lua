@@ -7,3 +7,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.diagnostic.enable(false, { bufnr = args.buf })
   end,
 })
+
+-- Disable autoformat on save for YAML and JSON files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "yaml", "json", "jsonc" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})

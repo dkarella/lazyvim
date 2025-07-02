@@ -12,6 +12,14 @@ return {
             },
           },
         },
+
+        gopls = {
+          settings = {
+            gopls = {
+              buildFlags = { "-tags=unit,integration" },
+            },
+          },
+        },
       },
     },
   },
