@@ -3,7 +3,7 @@ return {
   opts = {
     mappings = {
       submit_prompt = {
-        normal = "<C-CR>",
+        normal = "<CR>",
         insert = "<C-CR>",
       },
       close = {
