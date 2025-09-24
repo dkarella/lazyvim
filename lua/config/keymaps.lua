@@ -61,9 +61,9 @@ end, { desc = "Step Over" })
 
 -- Insert macros
 map("i", "<C-t>", function()
-  vim.api.nvim_put({ "TODO: @danny " }, "c", true, true)
+  vim.api.nvim_put({ "// TODO: @danny " }, "c", true, true)
 end, { desc = "Insert TODO" })
 
 map("i", "<C-n>", function()
-  vim.api.nvim_put({ "NOTE: @danny " }, "c", true, true)
+  vim.api.nvim_put({ "// NOTE: @danny " }, "c", true, true)
 end, { desc = "Insert NOTE" })
