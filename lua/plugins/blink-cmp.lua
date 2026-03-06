@@ -2,6 +2,10 @@
 return {
   "saghen/blink.cmp",
   opts = {
+    sources = {
+      -- remove "copilot" to avoid conflicts with inline ghost text suggestions
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
     keymap = {
       -- https://cmp.saghen.dev/configuration/keymap.html
       preset = "super-tab",
