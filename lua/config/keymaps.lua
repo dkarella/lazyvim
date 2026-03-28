@@ -21,7 +21,7 @@ map("n", "<leader>bn", function()
 end, { desc = "copy current buffer file name to clipboard" })
 
 map("n", "<leader>bp", function()
-  local rel = vim.fn.expand("%")
+  local rel = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":.")
   vim.fn.setreg("+", rel)
 end, { desc = "copy current buffer relative path to clipboard" })
 
