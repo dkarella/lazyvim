@@ -4,13 +4,11 @@ return {
     scroll = { enabled = false },
     terminal = {
       win = {
-        style = "float",
+        position = "right",
+        width = 0.50,
         wo = {
           winbar = "",
         },
-        border = "rounded",
-        width = 0.9,
-        height = 0.9,
       },
     },
     explorer = {
