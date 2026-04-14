@@ -34,6 +34,12 @@ vim.opt.scrolloff = 10
 -- ============================================================
 local map = vim.keymap.set
 
+-- Window navigation
+map('n', '<C-h>', '<C-w>h', { desc = 'Focus Left Window' })
+map('n', '<C-l>', '<C-w>l', { desc = 'Focus Right Window' })
+map('n', '<C-j>', '<C-w>j', { desc = 'Focus Below Window' })
+map('n', '<C-k>', '<C-w>k', { desc = 'Focus Above Window' })
+
 -- Windows (standalone only — VS Code handles splits via vscode.call below)
 if not vim.g.vscode then
   map('n', '|', '<C-W>s', { desc = 'Split Window Below', remap = true })
@@ -72,6 +78,9 @@ map('i', '<C-n>', function()
   vim.api.nvim_put({ '// NOTE: @danny ' }, 'c', true, true)
 end, { desc = 'Insert NOTE comment' })
 
+-- Quit
+map('n', '<leader>qq', '<cmd>qa<CR>', { desc = 'Quit Neovim' })
+
 -- Clear search highlight on <Esc>
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -82,11 +91,22 @@ if vim.g.vscode then
   map('n', '|', function() vscode.call('workbench.action.splitEditorDown') end, { desc = 'Split Editor Down' })
   map('n', '\\', function() vscode.call('workbench.action.splitEditor') end, { desc = 'Split Editor Right' })
   -- File explorer (replaces snacks.explorer which is disabled in VS Code)
-  map('n', '<leader>e', function() vscode.call('workbench.view.explorer') end, { desc = 'File Explorer' })
+-- Tab navigation
+  map('n', 'H', function() vscode.call('workbench.action.previousEditor') end, { desc = 'Previous Tab' })
+  map('n', 'L', function() vscode.call('workbench.action.nextEditor') end, { desc = 'Next Tab' })
+  map('n', '<leader>bo', function() vscode.call('workbench.action.closeOtherEditors') end, { desc = 'Close Other Tabs' })
+  -- File/string search
+  map('n', '<leader><leader>', function() vscode.call('workbench.action.quickOpen') end, { desc = 'Find Files' })
+  map('n', '<leader>/', function() vscode.call('workbench.action.findInFiles') end, { desc = 'Find in Files' })
   -- LSP-style navigation (migrated from VSCodeVim config)
   map('n', 'gI', function() vscode.call('editor.action.goToImplementation') end, { desc = 'Go to Implementation' })
   map('n', 'gr', function() vscode.call('editor.action.goToReferences') end, { desc = 'Go to References' })
   map('n', 'K', function() vscode.call('editor.action.showHover') end, { desc = 'Show Hover' })
+  -- Navigate between editor groups
+  map('n', '<C-h>', function() vscode.call('workbench.action.focusLeftGroup') end, { desc = 'Focus Left Group' })
+  map('n', '<C-l>', function() vscode.call('workbench.action.focusRightGroup') end, { desc = 'Focus Right Group' })
+  map('n', '<C-j>', function() vscode.call('workbench.action.focusBelowGroup') end, { desc = 'Focus Below Group' })
+  map('n', '<C-k>', function() vscode.call('workbench.action.focusAboveGroup') end, { desc = 'Focus Above Group' })
 end
 
 -- ============================================================
@@ -196,8 +216,10 @@ require('lazy').setup({
       scroll = { enabled = false },
     },
     keys = {
-      { '<leader>ld', function() Snacks.terminal('lazydocker') end, desc = 'LazyDocker' },
-      { '<leader>e',  function() Snacks.explorer() end,             desc = 'File Explorer' },
+      { '<leader>ld',     function() Snacks.terminal('lazydocker') end, desc = 'LazyDocker' },
+      { '<leader>e',      function() Snacks.explorer() end,             desc = 'File Explorer' },
+      { '<leader><leader>', function() Snacks.picker.files() end,        desc = 'Find Files' },
+      { '<leader>/',      function() Snacks.picker.grep() end,           desc = 'Grep' },
     },
   },
 
