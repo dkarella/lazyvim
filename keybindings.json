@@ -1,0 +1,30 @@
+[
+    // Escape from VS Code integrated terminal back to editor
+    {
+        "key": "ctrl+x",
+        "command": "workbench.action.terminal.focus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-editor.action.addSelectionToNextFindMatch"
+    },
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "claude-vscode.sidebar.open",
+        "when": "!auxiliaryBarVisible"
+    },
+    {
+        "key": "cmd+b",
+        "command": "workbench.action.toggleAuxiliaryBar",
+        "when": "auxiliaryBarVisible"
+    }
+]

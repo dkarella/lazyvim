@@ -95,6 +95,8 @@ if vim.g.vscode then
   map('n', 'H', function() vscode.call('workbench.action.previousEditor') end, { desc = 'Previous Tab' })
   map('n', 'L', function() vscode.call('workbench.action.nextEditor') end, { desc = 'Next Tab' })
   map('n', '<leader>bo', function() vscode.call('workbench.action.closeOtherEditors') end, { desc = 'Close Other Tabs' })
+  map('n', '<leader>bl', function() vscode.call('workbench.action.closeEditorsToTheLeft') end, { desc = 'Close Tabs to Left' })
+  map('n', '<leader>br', function() vscode.call('workbench.action.closeEditorsToTheRight') end, { desc = 'Close Tabs to Right' })
   -- File/string search
   map('n', '<leader><leader>', function() vscode.call('workbench.action.quickOpen') end, { desc = 'Find Files' })
   map('n', '<leader>/', function() vscode.call('workbench.action.findInFiles') end, { desc = 'Find in Files' })
