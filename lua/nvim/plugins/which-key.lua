@@ -6,7 +6,9 @@ return {
     icons = { mappings = false },
     spec = {
       { '<leader>b', group = 'buffer' },
+      { '<leader>c', group = 'code' },
       { '<leader>l', group = 'tools' },
+      { '<leader>r', group = 'rename' },
       { '<leader>u', group = 'ui' },
     },
   },
