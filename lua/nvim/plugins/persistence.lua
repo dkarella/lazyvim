@@ -10,7 +10,10 @@ return {
       nested = true,
       callback = function()
         if vim.fn.argc() == 0 and vim.g.started_with_stdin ~= 1 then
-          require('persistence').load()
+          -- Defer so lazy.nvim finishes its VimEnter pass and lazy-loaded
+          -- plugins (LSP, treesitter FileType hooks) are wired before
+          -- buffers are restored.
+          vim.schedule(function() require('persistence').load() end)
         end
       end,
     })
