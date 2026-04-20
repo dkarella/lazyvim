@@ -26,6 +26,6 @@ return {
     { '<leader><leader>', function() Snacks.picker.files() end,        desc = 'Find Files' },
     { '<leader>/',      function() Snacks.picker.grep() end,           desc = 'Grep' },
     { '<leader>gB',     function() Snacks.gitbrowse() end,             desc = 'Git Browse (open)', mode = { 'n', 'v' } },
-    { '<leader>gg',     function() Snacks.lazygit() end,               desc = 'LazyGit' },
+    { '<leader>gg',     function() Snacks.lazygit({ win = { position = 'float', width = 0.9, height = 0.9 } }) end, desc = 'LazyGit' },
   },
 }
