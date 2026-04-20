@@ -40,6 +40,10 @@ map('n', '<C-l>', '<C-w>l', { desc = 'Focus Right Window' })
 map('n', '<C-j>', '<C-w>j', { desc = 'Focus Below Window' })
 map('n', '<C-k>', '<C-w>k', { desc = 'Focus Above Window' })
 
+-- Function navigation (uses Vim built-in [m / ]m under the hood)
+map('n', '[f', '[m', { desc = 'Previous function' })
+map('n', ']f', ']m', { desc = 'Next function' })
+
 -- Windows (standalone only — VS Code handles splits via vscode.call below)
 if not vim.g.vscode then
   map('n', '|', '<C-W>s', { desc = 'Split Window Below', remap = true })
@@ -103,7 +107,7 @@ if vim.g.vscode then
   -- LSP-style navigation (migrated from VSCodeVim config)
   map('n', 'gI', function() vscode.call('editor.action.goToImplementation') end, { desc = 'Go to Implementation' })
   map('n', 'gr', function() vscode.call('editor.action.goToReferences') end, { desc = 'Go to References' })
-  map('n', 'K', function() vscode.call('editor.action.showHover') end, { desc = 'Show Hover' })
+  map('n', 'K', function() vscode.action('editor.action.showHover', { args = { { focus = true } } }) end, { desc = 'Show Hover (focused)' })
   -- Navigate between editor groups
   map('n', '<C-h>', function() vscode.call('workbench.action.focusLeftGroup') end, { desc = 'Focus Left Group' })
   map('n', '<C-l>', function() vscode.call('workbench.action.focusRightGroup') end, { desc = 'Focus Right Group' })
