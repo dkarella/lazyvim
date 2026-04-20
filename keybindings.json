@@ -6,6 +6,8 @@
         "command": "workbench.action.terminal.focus",
         "when": "terminalFocus"
     },
+
+    // Sidebar toggle (mac)
     {
         "key": "cmd+e",
         "command": "-editor.action.addSelectionToNextFindMatch"
@@ -14,6 +16,13 @@
         "key": "cmd+e",
         "command": "workbench.action.toggleSidebarVisibility"
     },
+    // Sidebar toggle (linux)
+    {
+        "key": "alt+e",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+
+    // Claude sidebar (mac)
     {
         "key": "cmd+b",
         "command": "-workbench.action.toggleSidebarVisibility"
@@ -25,6 +34,17 @@
     },
     {
         "key": "cmd+b",
+        "command": "workbench.action.toggleAuxiliaryBar",
+        "when": "auxiliaryBarVisible"
+    },
+    // Claude sidebar (linux)
+    {
+        "key": "alt+b",
+        "command": "claude-vscode.sidebar.open",
+        "when": "!auxiliaryBarVisible"
+    },
+    {
+        "key": "alt+b",
         "command": "workbench.action.toggleAuxiliaryBar",
         "when": "auxiliaryBarVisible"
     }
