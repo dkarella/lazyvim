@@ -5,17 +5,16 @@ return {
   opts = {
     terminal = {
       snacks_win_opts = {
-        position = 'float',
-        width = 0.9,
-        height = 0.9,
+        position = 'right',
+        width = 0.5,
+        height = 1,
         border = 'rounded',
         keys = {
-          -- Ctrl-hjkl hides the float and navigates to the adjacent window.
-          -- Single Esc is preserved so Claude CLI can still cancel generations.
-          term_nav_h = { '<C-h>', function(self) self:hide(); vim.cmd('wincmd h') end, mode = 't', desc = 'Hide + Focus Left' },
-          term_nav_j = { '<C-j>', function(self) self:hide(); vim.cmd('wincmd j') end, mode = 't', desc = 'Hide + Focus Below' },
-          term_nav_k = { '<C-k>', function(self) self:hide(); vim.cmd('wincmd k') end, mode = 't', desc = 'Hide + Focus Above' },
-          term_nav_l = { '<C-l>', function(self) self:hide(); vim.cmd('wincmd l') end, mode = 't', desc = 'Hide + Focus Right' },
+          -- Ctrl-hjkl navigates to adjacent windows without hiding Claude.
+          term_nav_h = { '<C-h>', function() vim.cmd('wincmd h') end, mode = 't', desc = 'Focus Left' },
+          term_nav_j = { '<C-j>', function() vim.cmd('wincmd j') end, mode = 't', desc = 'Focus Below' },
+          term_nav_k = { '<C-k>', function() vim.cmd('wincmd k') end, mode = 't', desc = 'Focus Above' },
+          term_nav_l = { '<C-l>', function() vim.cmd('wincmd l') end, mode = 't', desc = 'Focus Right' },
         },
       },
     },
