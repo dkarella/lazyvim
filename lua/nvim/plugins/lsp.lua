@@ -19,6 +19,15 @@ return {
       automatic_enable = true,
     },
     config = function(_, opts)
+      -- gopls: include build tags so files with //go:build unit|integration are analyzed
+      vim.lsp.config('gopls', {
+        settings = {
+          gopls = {
+            buildFlags = { '-tags=unit,integration' },
+          },
+        },
+      })
+
       require('mason-lspconfig').setup(opts)
 
       -- Buffer-local LSP keymaps, wired on attach

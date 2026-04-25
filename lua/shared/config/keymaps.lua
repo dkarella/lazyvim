@@ -44,7 +44,7 @@ map('i', '<C-n>', function()
 end, { desc = 'Insert NOTE comment' })
 
 -- Quit
-map('n', '<leader>qq', '<cmd>qa<CR>', { desc = 'Quit Neovim' })
+map('n', '<leader>qq', '<cmd>qa!<CR>', { desc = 'Force quit Neovim' }) 
 
 -- Clear search highlight on <Esc>
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
