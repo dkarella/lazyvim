@@ -46,8 +46,8 @@ return {
           map('n', '<leader>rn', vim.lsp.buf.rename,          'Rename Symbol')
           map({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, 'Code Action')
           map('n', '<leader>cf', function() vim.lsp.buf.format({ async = true }) end, 'Format Buffer')
-          map('n', '[d',         function() vim.diagnostic.jump({ count = -1 }) end, 'Prev Diagnostic')
-          map('n', ']d',         function() vim.diagnostic.jump({ count = 1 }) end,  'Next Diagnostic')
+          map('n', '[d',         function() vim.diagnostic.jump({ count = -1 }) vim.defer_fn(vim.diagnostic.open_float, 50) end, 'Prev Diagnostic')
+          map('n', ']d',         function() vim.diagnostic.jump({ count = 1 })  vim.defer_fn(vim.diagnostic.open_float, 50) end, 'Next Diagnostic')
           map('n', '<leader>cd', vim.diagnostic.open_float,   'Line Diagnostics')
         end,
       })

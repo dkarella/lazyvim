@@ -44,7 +44,17 @@ map('i', '<C-n>', function()
 end, { desc = 'Insert NOTE comment' })
 
 -- Quit
-map('n', '<leader>qq', '<cmd>qa!<CR>', { desc = 'Force quit Neovim' }) 
+map('n', '<leader>qq', function()
+  local unsaved = vim.fn.getbufinfo({ bufmodified = 1, buflisted = 1 })
+  if #unsaved > 0 then
+    local names = vim.tbl_map(function(b)
+      return b.name ~= '' and vim.fn.fnamemodify(b.name, ':t') or '[No Name]'
+    end, unsaved)
+    vim.notify('Unsaved buffers: ' .. table.concat(names, ', '), vim.log.levels.WARN)
+    return
+  end
+  vim.cmd('qa')
+end, { desc = 'Quit Neovim (safe)' })
 
 -- Clear search highlight on <Esc>
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
