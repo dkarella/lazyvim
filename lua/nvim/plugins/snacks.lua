@@ -30,6 +30,14 @@ return {
 			mode = { "n", "t" },
 		},
 		{
+			"<C-_>",
+			function()
+				Snacks.terminal.toggle()
+			end,
+			desc = "Toggle Terminal",
+			mode = { "n", "t" },
+		},
+		{
 			"<leader>ld",
 			function()
 				Snacks.terminal("lazydocker")
