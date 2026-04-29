@@ -5,14 +5,14 @@
 -- Layout:
 --   lua/shared/   shared modules (options, keymaps, autocmds, lazy bootstrap, shared plugins)
 --   lua/nvim/     standalone-only (keymaps + plugins)
---   lua/vscode/   vscode-only     (keymaps + plugins)
+--   lua/vsc/      vscode-only     (keymaps + plugins) — name avoids clash with `vscode` plugin module
 
 require('shared.config.options')
 require('shared.config.keymaps')
 require('shared.config.autocmds')
 
 if vim.g.vscode then
-  require('vscode.keymaps')
+  require('vsc.keymaps')
 else
   require('nvim.keymaps')
 end
