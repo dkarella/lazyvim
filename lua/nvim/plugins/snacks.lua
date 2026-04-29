@@ -52,6 +52,14 @@ return {
 			desc = "File Explorer",
 		},
 		{
+			"<M-e>",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "File Explorer",
+			mode = { "n", "t" },
+		},
+		{
 			"<leader><leader>",
 			function()
 				Snacks.picker.files()
