@@ -22,6 +22,14 @@ map('n', 'gI', function() vscode.call('editor.action.goToImplementation') end, {
 map('n', 'gr', function() vscode.call('editor.action.goToReferences') end, { desc = 'Go to References' })
 map('n', 'K', function() vscode.action('editor.action.showHover', { args = { { focus = true } } }) end, { desc = 'Show Hover (focused)' })
 
+-- Diagnostic navigation (mirror standalone ]d / [d)
+map('n', ']d', function() vscode.call('editor.action.marker.next') end, { desc = 'Next Diagnostic' })
+map('n', '[d', function() vscode.call('editor.action.marker.prev') end, { desc = 'Prev Diagnostic' })
+
+-- Git hunk navigation
+map('n', ']h', function() vscode.call('workbench.action.editor.nextChange') end, { desc = 'Next Hunk' })
+map('n', '[h', function() vscode.call('workbench.action.editor.previousChange') end, { desc = 'Prev Hunk' })
+
 -- Navigate between editor groups (override shared window nav)
 map('n', '<C-h>', function() vscode.call('workbench.action.focusLeftGroup') end, { desc = 'Focus Left Group' })
 map('n', '<C-l>', function() vscode.call('workbench.action.focusRightGroup') end, { desc = 'Focus Right Group' })
