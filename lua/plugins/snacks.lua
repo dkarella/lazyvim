@@ -11,11 +11,11 @@ return {
         },
       },
     },
-    explorer = {
-      hidden = true,
-    },
     picker = {
       sources = {
+        explorer = {
+          hidden = true,
+        },
         files = {
           hidden = true,
         },
