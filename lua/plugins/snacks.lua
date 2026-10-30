@@ -4,11 +4,19 @@ return {
     scroll = { enabled = false },
     terminal = {
       win = {
-        position = "right",
-        width = 0.50,
+        position = "bottom",
+        height = 0.4,
         wo = {
           winbar = "",
         },
+      },
+    },
+    lazygit = {
+      win = {
+        position = "float",
+        border = "rounded",
+        width = 0.9,
+        height = 0.9,
       },
     },
     picker = {
