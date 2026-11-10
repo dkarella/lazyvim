@@ -3,7 +3,6 @@ return {
   "saghen/blink.cmp",
   opts = {
     sources = {
-      -- remove "copilot" to avoid conflicts with inline ghost text suggestions
       default = { "lsp", "path", "snippets", "buffer" },
     },
     keymap = {
@@ -19,6 +18,16 @@ return {
         end,
         "snippet_forward",
         "select_next",
+        "fallback",
+      },
+      ["<Right>"] = {
+        function()
+          local suggestion = require("copilot.suggestion")
+          if suggestion.is_visible() then
+            suggestion.accept()
+            return true
+          end
+        end,
         "fallback",
       },
       ["<C-k>"] = { "select_prev", "fallback" },
